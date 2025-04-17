@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 建 A 號碼球 號碼陣列，索引值：Aindex
+        const A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38];
+        // 建 B 號碼球 號碼
+        const B = [1, 2, 3, 4, 5, 6, 7, 8];
+
+        // 設 空陣列裝抽到的結果（值是 pick）
+        let ballA = [];
+        // 設 空陣列裝抽到的結果（值是 pickB）
+        let ballB = [];
+
+
+        // 抽 A 區，抽出來的值要有六個，沒到六個就繼續抽
+        while (ballA.length < 6) {
+
+            // 抽 0 ~ 1 之間的隨機小數，再*38（範圍是 0 ~ 37.999...）
+            const a = Math.random() * A.length;
+
+            // 設 A 裡面的陣列索引是 Aindex （把抽的數字無條件捨去變成 0 ~ 37）
+            const Aindex = Math.floor(a);
+
+            // 抽到的數字會是 A陣列[索引值]，存到 ballA 的 值 裡面
+            const pick = A[Aindex];
+
+            // 如果ballA裡面原本有這個數字（回傳true）條件成立的話
+            if (ballA.includes(pick)) {
+                // 不做任何事情
+            }
+            // 否則就存進去
+            else {
+                ballA.push(pick);
+            }
+        }
+
+        // 抽 B 區（抽 1 個）
+        // 抽 0 ~ 1 之間的隨機小數，再*6（範圍是 0 ~ 7.999...）
+        const b = Math.random() * B.length;
+
+        // 設 ballB 索引值（把抽的數字無條件捨去變成 0 ~ 7）
+        ballB = Math.floor(b);
+
+        // 抽到的數字會是 B陣列[索引值]，存到 ballB 的 值 裡面
+        const pickB = B[ballB];
+
+        document.write(`A區號碼：${ballA.sort((a, b) => a - b)}<br>`);
+        document.write(`B區號碼：${pickB}`);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
